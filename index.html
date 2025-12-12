@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Minisistema SPA de Mascotas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="app">
+
+        <!-- LOGIN -->
+        <section id="loginView" class="panel visible">
+            <h1>Iniciar sesión</h1>
+            <p>Usuario: <strong>admin</strong> — Contraseña: <strong>1234</strong></p>
+
+            <label>Usuario
+                <input id="loginUser" />
+            </label>
+
+            <label>Contraseña
+                <input id="loginPass" type="password" />
+            </label>
+
+            <button id="btnLogin" class="btn">Entrar</button>
+
+            <p id="loginError" class="error" style="display:none">Datos incorrectos.</p>
+        </section>
+
+        <!-- SISTEMA (DESPUÉS DEL LOGIN) -->
+        <div id="appMain" class="oculto">
+
+            <!-- BARRA SUPERIOR -->
+            <header class="nav">
+                <img src="imagenes/logo.jpg" class="logoImg">
+
+                <div class="marca">SPA Mascotas</div>
+
+                <nav>
+                    <button class="navBtn" data-module="registro">Registro</button>
+                    <button class="navBtn" data-module="agenda">Agenda</button>
+                    <button class="navBtn" data-module="catalogo">Catálogo</button>
+                </nav>
+
+                <div class="right">
+                    <span id="usuarioActual"></span>
+                    <button id="btnLogout" class="btn small">Cerrar</button>
+                </div>
+            </header>
+
+            <main>
+
+                <!-- MÓDULO REGISTRO -->
+                <section id="registro" class="panel oculto">
+                    <h2>Registro de Dueños y Mascotas</h2>
+
+                    <div class="col">
+                        <!-- Dueño -->
+                        <div class="card">
+                            <h3>Datos del dueño</h3>
+
+                            <label>Nombre
+                                <input id="duenoNombre">
+                            </label>
+
+                            <label>Teléfono
+                                <input id="duenoTelefono">
+                            </label>
+
+                            <label>Correo
+                                <input id="duenoCorreo">
+                            </label>
+
+                            <button id="guardarDueno" class="btn">Guardar dueño</button>
+                        </div>
+
+                        <!-- Mascota -->
+                        <div class="card">
+                            <h3>Datos de la mascota</h3>
+
+                            <label>Nombre
+                                <input id="mascNombre">
+                            </label>
+
+                            <label>Especie
+                                <input id="mascEspecie">
+                            </label>
+
+                            <label>Raza
+                                <input id="mascRaza">
+                            </label>
+
+                            <label>Dueño
+                                <select id="mascDuenoSelect"></select>
+                            </label>
+
+                            <button id="guardarMascota" class="btn">Guardar mascota</button>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card">
+                            <h3>Dueños registrados</h3>
+                            <ul id="listaDuenos" class="lista"></ul>
+                        </div>
+                        <div class="card">
+                            <h3>Mascotas registradas</h3>
+                            <ul id="listaMascotas" class="lista"></ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- MÓDULO AGENDA -->
+                <section id="agenda" class="panel oculto">
+                    <h2>Agenda de Servicios</h2>
+
+                    <div class="card">
+                        <h3>Agendar</h3>
+
+                        <label>Fecha
+                            <input id="agFecha" type="date">
+                        </label>
+
+                        <label>Hora
+                            <input id="agHora" type="time">
+                        </label>
+
+                        <label>Mascota
+                            <select id="agMascotaSelect"></select>
+                        </label>
+
+                        <label>Servicio
+                            <select id="agServicioSelect"></select>
+                        </label>
+
+                        <button id="btnAgregarAgenda" class="btn">Guardar</button>
+                    </div>
+
+                    <div class="card">
+                        <h3>Lista de agendas</h3>
+                        <ul id="listaAgenda" class="lista"></ul>
+                    </div>
+                </section>
+
+                <!-- MÓDULO CATÁLOGO + CARRITO -->
+                <section id="catalogo" class="panel oculto">
+                    <h2>Catálogo</h2>
+
+                    <div class="grid">
+
+                        <!-- Productos -->
+                        <div class="card" id="catalogoItems"></div>
+
+                        <!-- Carrito -->
+                        <aside class="card">
+                            <h3>Carrito</h3>
+                            <ul id="carritoLista" class="lista"></ul>
+
+                            <div class="totales">
+                                Subtotal: <span id="subtotal">Bs. 0.00</span><br>
+                                Total: <strong id="total">Bs. 0.00</strong>
+                            </div>
+
+                            <button id="vaciarCarrito" class="btn small">Vaciar</button>
+                        </aside>
+                    </div>
+                </section>
+
+                <!-- GALERÍA DE IMÁGENES -->
+                <section class="panel">
+                    <h2>Galería</h2>
+
+                    <div class="galeria">
+                        <img src="imagenes/perro1.jpg">
+                        <img src="imagenes/perro2.jpg">
+                        <img src="imagenes/gato1.jpg">
+                        <img src="imagenes/gato2.jpg">
+                        <img src="imagenes/juguete.jpg">
+                        <img src="imagenes/comida.jpg">
+                        <img src="imagenes/peluqueria.jpg">
+                    </div>
+                </section>
+
+            </main>
+
+            <footer class="pie">Proyecto SPA de Mascotas — HTML, CSS y JS</footer>
+
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
